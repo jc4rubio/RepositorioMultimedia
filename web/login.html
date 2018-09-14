@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Repositorio Multimedia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Icono-->
+        <link rel="shortcut icon" href="resources/images/favicon.png" type="image/x-icon">
+        <link rel="icon" href="resources/images/favicon.png" type="image/x-icon">
+        <!--Estilos-->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/repositorio/estilo.css" rel="stylesheet" type="text/css"/>
+        <!--Librerías-->
+        <script src ="./resources/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> Online-->
+        <script src="./resources/js/jquery.form-validator.min.js" type="text/javascript"></script>    <!--Offline--> 
+    </head>
+    <body>
+        <header>
+            <h1>Repositorio Multimedia</h1>
+        </header>
+
+        <main>
+            <!-- Capa envoltorio: Permite crear un footer responsive-->
+            <div id="wrap"> 
+                <div class="container-fluid">
+                    <!-- Navegación y contenido -->
+                    <div class="row">
+                        <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"> <!--Quito la clase contenido!-->
+                            <table align="center" class="tabla_navegacion">
+                                <tr>
+                                    <!--Columna 1. Icono de inicio-->
+                                    <td class="td_ancho2">
+                                        <a href="index.html">
+                                            <img src = "./resources/images/home.png" alt="Inicio" title="Inicio" class="icono_navegacion float_izquierda">
+                                        </a>
+                                    </td>
+                                    <!--Columna 2. Título del contenido-->
+                                    <td>
+                                        <h2 class="texto_centrado" id="titulo_contenido">Inicio de sesión</h2>
+                                    </td>
+                                    <!--Columna 3. Iconos de registro-->
+                                    <td class="td_ancho2" >
+                                        <a href="registro.html">
+                                            <img src = "./resources/images/registro.png" alt="Registro" title="Registro" class="icono_navegacion float_derecha">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr/>           
+                            <br/>
+                            
+                            <div id="mi_contenido">
+                                <!-- Formulario de login-->
+                                <div class="row">
+                                    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                                        <form  method="post" action="login" id="login"> 
+                                            <fieldset>
+
+                                                <!--Usuario-->
+                                                <div class="form-group">
+                                                  <input class="form-control" type="text" name="user" id="user" placeholder="Usuario" data-validation="required"> 
+                                                  <!--No funciona el autofucus en firefox. En chrome si. Lo quito porque al tenerlo, si pincho en cualquier otro elemento de la página actúa el validador, notificando que el campo es requerido.-->
+                                                </div>
+
+                                                <!--Password-->
+                                                <div class="form-group">
+                                                  <input class="form-control" type="password" name="password" id="password" placeholder="Password" data-validation="required">
+                                                </div>
+
+                                                <!--Submit-->
+                                                <div class="form-group">
+                                                  <button type="submit" class="btn btn-primary pull-right" id="doLogin">Acceder</button>
+                                                </div>             
+
+                                            </fieldset>
+                                        </form> 
+                                    </div>
+                                </div>
+                                <!--Mensaje de error-->
+                                <div id="mensaje_error">
+                                    <br/>
+                                    ¡Las credenciales introducidas no son válidas!
+                                </div>
+
+                                 <!--Recuperación y registro--> 
+                                <div class="texto_centrado">                                  
+                                    <br/>
+                                    <p>¿Olvidó las credenciales? <a id="notImplemented" class="pointer">Click aquí</a></p>
+                                    <p>¿Nuevo usuario? <a href="registro.html" >Registro</a></p>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>      
+            </div>   
+        </main>
+        
+        <footer>
+            <h4>Máster en Ingeniería de Telecomunicación</h4>
+            <h5>Proyecto Fin de Máster</h5>
+        </footer>   
+        
+        <script type="text/javascript"> 
+            
+            // Validación del formulario de login: jQuery form validator -> Ojo! Requiere conexión a Internet.
+            $.validate({
+                lang: 'es'
+            });
+
+            // Mensaje de aviso para la funcionalidad de recuperar contraseña
+            $('#notImplemented').on('click', function () {
+                return alert('Esta función no está implementada todavía. Contacte con el administrador.');
+            });        
+
+            // Comprueba si hay un parámetro en concreto en la url: Utilizado para comprobar si es necesario mostrar el mensaje de error
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+            
+            /* --------------------------------------------------*
+             * Este código se ejecuta cuando el DOM está cargado.*
+             * --------------------------------------------------*/
+
+            $(function() {
+                
+                // ¿Hay errores en el login?
+                if (getUrlParameter('error')){
+                    
+                    /* Comportamiento con error en el login *
+                    /* -------------------------------------*/
+                    
+                    // 1. Mostrar el contenido (Inmediato)
+                    $('#mi_contenido').css('visibility','visible');
+
+                    // 2. Mostrar mensaje de error
+                    $('#mensaje_error').fadeOut(function(){
+                        $('#mensaje_error').css('visibility','visible');
+                        $('#mensaje_error').fadeIn(250); // 0.25 seg
+                    });
+                } else {
+                    
+                    /* Comportamiento normal (sin errores) *
+                    /* ------------------------------------*/
+                    
+                    // 1. Parpadeo del título
+                    $('#titulo_contenido').fadeOut(function(){
+                        $('#titulo_contenido').fadeIn('slow');    
+                    });
+                    
+                    // 2. Mostrar contenido (Progresivo)
+                    $('#mi_contenido').fadeOut(function(){
+                       $('#mi_contenido').css('visibility','visible');
+                       $('#mi_contenido').fadeIn(500); // 0.5 seg
+                    });
+                }
+            });
+
+        </script>
+        
+    </body>
+</html>

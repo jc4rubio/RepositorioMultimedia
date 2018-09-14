@@ -1,0 +1,332 @@
+/* 
+    Created on : 26-oct-2016, 12:19:08
+    Author     : Juan Carlos
+*/
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+    font-family: "Lucida Sans", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+            
+header {
+    background-color: #2e03a6;
+    color: #ffffff;
+    padding: 25px;
+    text-align: center;
+    min-height: 20%;
+}
+
+main {
+    min-height: 80%;
+    background-color: #c7ddef !important; /*Color de fondo de toda la web*/
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  
+  /*Ajuste del footer*/
+  padding-bottom: 80px;
+}
+
+.tabla_navegacion {
+    width:95%;
+    margin-bottom: -20px;
+}
+
+#wrap {
+    min-height: 100%;
+    padding-bottom: 40px; /* Separación mínima entre el contenido y el footer*/
+}
+
+footer {
+
+    /*Posicion*/
+    position: relative;
+    width: 100%;
+    margin-top: -20px; /* negative value of footer height */
+    height: 100px;
+    clear:both;
+    /*padding-top: 20px;*/
+    
+    /*Aspecto*/
+    text-align: center;
+    background-color: #2e03a6;
+    color: #ffffff;
+    padding: 1rem; 
+}
+
+/*-----*/
+
+#mi_contenido {
+    visibility: hidden;
+    display: block;
+}
+
+/*#titulo_contenido {
+    display: none;
+    visibility: hidden;
+    font-size: 1em;
+    color: #ffffff;
+}*/
+
+.texto_centrado {
+    text-align: center;
+}
+            
+.contenido {
+    /*border: 2px solid black;*/
+    padding-left: 5%;
+    padding-right: 5%;
+    
+    /*Correccion para footer responsive*/
+    overflow: auto;
+    padding-bottom: 20px; /* Separación mínima entre el contenido y el footer*/
+}
+
+/* Listados*
+ * --------*/
+.medioItem{
+    border-radius: 25px;
+    background: #0099cc;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    
+    display: block;
+}
+.perfilItem{
+    border-radius: 25px;
+    background: #0099cc;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    
+    display: block;
+}
+
+.perfilCompleto{
+    border-radius: 10px;
+    border-style: dotted;
+    padding: 1%;
+    margin-top: 5px;  
+}
+
+.recursoItem {
+    border-radius: 25px;
+    border-color: #ff0000 #0000ff;
+    background: #9acfea;
+    margin-left: auto;
+    margin-right: 2%;
+    padding: 20px;
+    /*padding-bottom: 50px;*/
+
+    display: block;
+    width: 90%;
+    height: auto; /*110px;*/
+    margin-bottom: 10px;
+}
+
+.listado_principal {
+    display: none;
+    min-height: min-content; /*200oopx*/
+    text-align: center; /* Pensado para el mensaje que aparece cuando la lista está vacía*/
+}
+
+.lista_recursos {
+    display: none;
+    min-height: 50px;
+    text-align: center; /* Pensado para el mensaje que aparece cuando la sublista está vacía*/
+}
+
+.desplegarMedio {
+    width:30px;
+    margin-left: 75%;
+    /*Nuevo código*/
+/*    display: inline-block;
+    margin-left: 40%;
+    position: absolute;*/
+}
+
+.desplegarPerfil {
+    width:30px;
+}
+
+/*Nuevo código*/
+/*.papeleraMedio {
+    display: inline-block;
+    width:30px;
+    margin-left: 33%;
+    margin-left: auto;
+    text-align: center;
+    position: absolute;
+}*/
+
+/*.operacionesMedio {
+    width:30px;
+    margin-left: 40%;
+    margin-left: 25%;
+}*/
+
+
+
+
+.pointer {
+    cursor: pointer;
+}
+
+.icono_navegacion {
+    cursor: pointer;
+    height: 35px;
+}
+
+.float_izquierda {
+    float: left;
+}
+
+.float_derecha {
+    float: right;
+}
+
+.icono_player {
+    cursor: pointer;
+    height: 50px;
+}
+
+.icono_error {
+    height: 50px;
+}
+
+.icono_enCola {
+    height: 50px;
+}
+
+.icono_procesando {
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin:0 0 0 0;
+    -webkit-animation:spin 3s linear infinite;
+    -moz-animation:spin 3s linear infinite;
+    animation:spin 3s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.html5lightbox {}
+
+/*Útil si implemento el mostrar perfil al situar el mouse sobre el perfil asociado al recurso*/
+/*.perfilName {
+    cursor: pointer;   
+}*/
+
+.td_ancho1 {
+    width: 10%;  
+}
+.td_ancho2 {
+    width: 20%;  
+}
+
+.texto_centrado {
+    text-align: center;
+}
+
+.texto_justificado_izquierda{
+    text-align: left;
+}
+
+#mensaje_error {
+    display: block;
+    visibility: hidden;
+    color: red;
+    text-align: center;
+}
+
+#formulario_envio {  
+    border: 2px solid black;   
+}
+
+#input_explorar {  
+    margin-top: 2%;
+    position: static;
+    margin-left: 3%;
+}
+
+#input_subir {  
+    margin-top: 2%;
+    position: static;
+    margin-left: 5%;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+td img {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+/* CSS dinámico *
+ * ------------ */
+/* -> Quiero cambiar el tamaño de los h2 pero no obedece. Utiliza los definidos por bootstrap.  !! */
+@media (max-width: 600px) {
+    
+    .td_ancho2{width: 10%;} /* Ajuste*/
+    .contenido {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .icono_navegacion {height: 25px;};
+    
+    /*Pruebas con h2*/
+/*    h2 {
+        font-size: 5px !important;
+        min-height: 60%;
+        color: yellow;
+    }
+    
+    .h2, h2 {
+        font-size: 15px;
+    }*/
+
+    /*.footer  {color:red !important;}*/
+
+}
+@media (min-width: 601px) and ( max-width: 800px) {
+    
+    /*footer  {color:yellow;}*/
+/*    h2 {
+        font-size: 10px !important;
+        min-height: 80%;
+        color: yellow;
+    }*/
+    
+}
+@media (min-width: 801px) and ( max-width: 1200px) {
+    
+    /*footer  {color:pink;}*/
+}
+@media (min-width: 1201px) {
+    
+    /*footer  {color:white;}*/
+}
+/*0-----------600-----------800------1200-----*/
